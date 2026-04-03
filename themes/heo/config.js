@@ -157,6 +157,7 @@ const CONFIG = {
 
   // 底部统计面板文案
   HEO_POST_COUNT_TITLE: '文章数:',
+  HEO_TOTAL_WORD_COUNT_TITLE: '总字数:',
   HEO_SITE_TIME_TITLE: '建站天数:',
   HEO_SITE_VISIT_TITLE: '访问量:',
   HEO_SITE_VISITOR_TITLE: '访客数:',

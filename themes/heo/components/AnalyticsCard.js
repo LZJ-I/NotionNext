@@ -12,17 +12,27 @@ export function AnalyticsCard(props) {
   const diffTime = today.getTime() - targetDate.getTime() // 获取两个日期之间的毫秒数差值
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) // 将毫秒数差值转换为天数差值
   const postCountTitle = siteConfig('HEO_POST_COUNT_TITLE', null, CONFIG)
+  const totalWordCountTitle = siteConfig('HEO_TOTAL_WORD_COUNT_TITLE', '总字数:', CONFIG)
   const siteTimeTitle = siteConfig('HEO_SITE_TIME_TITLE', null, CONFIG)
   const siteVisitTitle = siteConfig('HEO_SITE_VISIT_TITLE', null, CONFIG)
   const siteVisitorTitle = siteConfig('HEO_SITE_VISITOR_TITLE', null, CONFIG)
 
-  const { postCount } = props
+  const { postCount, totalWordCount = 0 } = props
+  const formattedTotalWordCount = new Intl.NumberFormat('zh-CN').format(
+    totalWordCount
+  )
   return <>
         <div className='text-md flex flex-col space-y-1 justify-center px-3'>
             <div className='inline'>
                 <div className='flex justify-between'>
                     <div>{postCountTitle}</div>
                     <div>{postCount}</div>
+                </div>
+            </div>
+            <div className='inline'>
+                <div className='flex justify-between'>
+                    <div>{totalWordCountTitle}</div>
+                    <div>{formattedTotalWordCount}</div>
                 </div>
             </div>
             <div className='inline'>
