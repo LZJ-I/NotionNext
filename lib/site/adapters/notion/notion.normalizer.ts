@@ -24,6 +24,7 @@ export function normalizeNotionSite(
     customNav: [],
     customMenu: [],
     postCount: 0,
+    totalWordCount: 0,
     block: recordMap?.block,
     schema: {},
     rawMetadata: {}

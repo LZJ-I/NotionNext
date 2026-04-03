@@ -19,6 +19,7 @@ export function EmptyData(pageId?: string): SiteData {
     tagOptions: [],
     customNav: [],
     customMenu: [],
-    postCount: 0
+    postCount: 0,
+    totalWordCount: 0
   }
 }
