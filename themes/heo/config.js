@@ -156,7 +156,7 @@ const CONFIG = {
   HEO_SOCIAL_CARD_TITLE_1: '与我联系',
   HEO_SOCIAL_CARD_TITLE_2: '发送邮件',
   HEO_SOCIAL_CARD_TITLE_3: '点击向我发送邮件',
-  HEO_SOCIAL_CARD_URL: 'mailto:liu_zhen_jie@qq.com',
+  HEO_SOCIAL_CARD_URL: 'mailto:liu_zhen_jie@126.com',
 
   // 底部统计面板文案
   HEO_POST_COUNT_TITLE: '文章数:',
