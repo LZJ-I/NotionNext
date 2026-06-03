@@ -88,7 +88,6 @@ export interface SiteData {
   customMenu: MenuItem[]
 
   postCount: number
-  totalWordCount: number
 
   // 以下字段仅服务端使用
   block?: unknown
