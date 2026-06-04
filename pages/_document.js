@@ -1,5 +1,6 @@
 // eslint-disable-next-line @next/next/no-document-import-in-page
 import BLOG from '@/blog.config'
+import { rewriteStaticAssetUrl } from '@/lib/utils/jsdMirror'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
 // 预先设置深色模式的脚本内容
@@ -40,6 +41,11 @@ class MyDocument extends Document {
   }
 
   render() {
+    const fontAwesomeUrl = rewriteStaticAssetUrl(BLOG.FONT_AWESOME, {
+      enabled: BLOG.JSDMIRROR_ENABLE,
+      cdnPrefix: BLOG.JSDMIRROR_CDN_PREFIX
+    })
+
     return (
       <Html lang={BLOG.LANG}>
         <Head>
@@ -48,13 +54,13 @@ class MyDocument extends Document {
             <>
               <link
                 rel='preload'
-                href={BLOG.FONT_AWESOME}
+                href={fontAwesomeUrl}
                 as='style'
                 crossOrigin='anonymous'
               />
               <link
                 rel='stylesheet'
-                href={BLOG.FONT_AWESOME}
+                href={fontAwesomeUrl}
                 crossOrigin='anonymous'
                 referrerPolicy='no-referrer'
               />

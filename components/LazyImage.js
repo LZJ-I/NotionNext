@@ -1,4 +1,5 @@
 import { siteConfig } from '@/lib/config'
+import { rewriteStaticAssetUrl } from '@/lib/utils/jsdMirror'
 import Head from 'next/head'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
@@ -53,7 +54,9 @@ export default function LazyImage({
   }, [defaultPlaceholderSrc, fallbackSrc, placeholderSrc])
 
   useEffect(() => {
-    const adjustedImageSrc = adjustImgSize(src, maxWidth) || defaultPlaceholderSrc
+    const adjustedImageSrc =
+      rewriteStaticAssetUrl(adjustImgSize(src, maxWidth)) ||
+      defaultPlaceholderSrc
     const imageElement = imageRef.current
     const handleImageLoaded = () => {
       if (typeof onLoad === 'function') {
@@ -140,7 +143,7 @@ export default function LazyImage({
   const imgProps = {
     ref: imageRef,
     src: currentSrc,
-    'data-src': src, // 存储原始图片地址
+    'data-src': rewriteStaticAssetUrl(src), // 存储镜像后的图片地址
     alt: alt || 'Lazy loaded image',
     onLoad: handleThumbnailLoaded,
     onError: handleImageError,
@@ -171,7 +174,11 @@ export default function LazyImage({
       {/* 预加载 */}
       {priority && (
         <Head>
-          <link rel='preload' as='image' href={adjustImgSize(src, maxWidth)} />
+          <link
+            rel='preload'
+            as='image'
+            href={rewriteStaticAssetUrl(adjustImgSize(src, maxWidth))}
+          />
         </Head>
       )}
     </>

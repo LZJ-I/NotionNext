@@ -36,6 +36,7 @@ const BLOG = {
   ...require('./conf/post.config'), // 文章与列表配置
   ...require('./conf/analytics.config'), // 站点访问统计
   ...require('./conf/image.config'), // 网站图片相关配置
+  ...require('./conf/cdn.config'), // CDN镜像加速配置
   ...require('./conf/font.config'), // 网站字体
   ...require('./conf/right-click-menu'), // 自定义右键菜单相关配置
   ...require('./conf/code.config'), // 网站代码块样式

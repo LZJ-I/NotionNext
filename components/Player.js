@@ -1,5 +1,6 @@
 import { siteConfig } from '@/lib/config'
 import { loadExternalResource } from '@/lib/utils'
+import { rewriteStaticAssetUrl } from '@/lib/utils/jsdMirror'
 import { useEffect, useRef, useState } from 'react'
 
 /**
@@ -64,7 +65,9 @@ const Player = () => {
       <link
         rel='stylesheet'
         type='text/css'
-        href='https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css'
+        href={rewriteStaticAssetUrl(
+          'https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css'
+        )}
       />
       {meting ? (
         <meting-js
