@@ -427,6 +427,7 @@ const nextConfig = {
   experimental: {
     // cpus: 1,
     scrollRestoration: true,
+    serverComponentsExternalPackages: ['ofetch'],
     // 性能优化实验性功能
     optimizePackageImports: ['@heroicons/react', 'lodash']
   },
@@ -446,6 +447,13 @@ const nextConfig = {
   }
 }
 
-module.exports = process.env.ANALYZE
+const exportedConfig = process.env.ANALYZE
   ? withBundleAnalyzer(nextConfig)
   : nextConfig
+
+if (process.env.NODE_ENV === 'development') {
+  const { initOpenNextCloudflareForDev } = require('@opennextjs/cloudflare')
+  initOpenNextCloudflareForDev()
+}
+
+module.exports = exportedConfig

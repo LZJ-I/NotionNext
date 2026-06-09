@@ -64,7 +64,10 @@
     "translate:check": "node scripts/translate/index.js --check-drift",
     "translate:backfill": "node scripts/translate/index.js --backfill",
     "translate:diagnose": "node scripts/translate/index.js --diagnose",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "preview": "opennextjs-cloudflare build -- --dangerouslyUseUnmaintainedNextVersion && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build -- --dangerouslyUseUnmaintainedNextVersion && opennextjs-cloudflare deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
     "@clerk/localizations": "^3.37.6",
@@ -100,6 +103,7 @@
     "@lhci/cli": "^0.15.1",
     "@netlify/plugin-nextjs": "^5.15.11",
     "@notionhq/client": "^2.2.15",
+    "@opennextjs/cloudflare": "^1.14.10",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
@@ -129,7 +133,8 @@
     "tailwindcss": "^3.4.19",
     "typescript": "5.9.3",
     "vitepress": "^1.6.3",
-    "webpack-bundle-analyzer": "^4.5.0"
+    "webpack-bundle-analyzer": "^4.5.0",
+    "wrangler": "^4.86.0"
   },
   "resolutions": {
     "axios": ">=0.21.1",

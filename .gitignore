@@ -11,6 +11,7 @@
 
 # next.js
 /.next/
+/.open-next/
 /out/
 
 # vitepress (docs site)
@@ -30,6 +31,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.dev.vars
 .env.local
 .env.docs.local
 .env.development.local
@@ -39,6 +41,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# cloudflare workers
+.wrangler/
 
 # dev
 /data.json
