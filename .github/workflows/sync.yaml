@@ -4,8 +4,7 @@ permissions:
   contents: write
 
 on:
-  schedule:
-    - cron: "0 0 * * *" # every day
+  # 已关闭每日自动同步：fork 与上游存在合并冲突时会每天失败并推送邮件
   workflow_dispatch:
 
 jobs:
